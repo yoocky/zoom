@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+<title>自适应缩放</title>
+<meta charset="utf-8" />
+<style type="text/css">
+ .wrap p{ 
+          width: 640px;
+          height: 400px;
+          font-size: 28px; 
+          background: #DDD;
+          margin: 0 auto;
+        }
+</style>
+<style type="text/css" id="_zoom"></style>
+</head>
+<body>
+<div class="wrap zoom">
+   <p>你可以缩放浏览器或者<br>用不同分变率的手机浏览器打开，<br>我总是能随窗口缩放</p>
+</div>
+<script>
+(function(){
+    var _w,_zoom,_hd, _orientationChange,_doc = document,_style = _doc.getElementById("_zoom");
+    _style || (_hd = _doc.getElementsByTagName("head")[0], _style = _doc.createElement("style"), _hd.appendCHild(_style));
+    _orientationChange = function(){
+       _w = _doc.documentElement.clientWidth || _doc.body.clientWidth;
+       _zoom = _w / 640;
+       _style.innerHTML = ".zoom {zoom:" + _zoom + ";-webkit-text-size-adjust:auto!important;}";
+    };
+    _style.setAttribute("zoom", _zoom);
+    _orientationChange();
+    window.addEventListener("resize", _orientationChange, false);
+})();
+</script>
+
+</body>
+</html>
