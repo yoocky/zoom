@@ -10,7 +10,7 @@
 ;
 (function(){
     var _w,_zoom,_hd, _orientationChange,_doc = document,_style = _doc.getElementById("_zoom");
-    _style || (_hd = _doc.getElementsByTagName("head")[0],_style=_doc.createElement("style"),_hd.appendCHild(_style));
+    _style || (_hd = _doc.getElementsByTagName("head")[0],_style=_doc.createElement("style"),_hd.appendChild(_style));
     _orientationChange = function(){
        _w    = _doc.documentElement.clientWidth || _doc.body.clientWidth;
        _zoom = _w / 640;
